@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Llamarte · Velas artesanales en macetas de cerámica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+:root{--bg:#f4f0f8;--ink:#1f1b3a;--mut:#5d5878;--card:#fff;--line:#d9d3e6;--acc:#d9467a;--accink:#fff;--night:#171330;--flame:#ffb02e;
+--h:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--b:"Newsreader",Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15122b;--ink:#f1edf9;--mut:#b4aed0;--card:#1f1b3a;--line:#363057;--acc:#ef6a9a;--accink:#15122b;--night:#0d0b1d}}
+:root[data-theme="dark"]{--bg:#15122b;--ink:#f1edf9;--mut:#b4aed0;--card:#1f1b3a;--line:#363057;--acc:#ef6a9a;--accink:#15122b;--night:#0d0b1d}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.6 var(--b)}
+h1,h2,h3{font-family:var(--h);line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+section{padding:4.5rem 0}
+.btn{font:700 1rem var(--h);background:var(--acc);color:var(--accink);border:0;border-radius:999px;padding:.8rem 1.4rem;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
+.logo{font:800 1.6rem var(--h);text-decoration:none;letter-spacing:-.04em}
+.logo span{color:var(--acc)}
+.links{display:flex;gap:1.4rem;font:500 1rem var(--h)}
+.links a{text-decoration:none}
+.cartbtn{font:700 .95rem var(--h);background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:.55rem 1rem;cursor:pointer}
+@media(max-width:720px){.links{display:none}}
+/* hero */
+.hero{background:var(--bg);transition:background .9s,color .9s;padding:3rem 0 4rem;overflow:hidden}
+.hero.lit{background:var(--night);color:#f1edf9}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800}
+.hero p.lead{margin:1.2rem 0 1.6rem;max-width:34ch;color:var(--mut)}
+.hero.lit p.lead{color:#cfc9e6}
+.stage{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.stage svg{width:min(320px,80%);height:auto;overflow:visible}
+.glow{opacity:0;transition:opacity .9s}
+.lit .glow{opacity:1}
+.flame{opacity:0;transform-origin:50% 100%;transition:opacity .5s}
+.lit .flame{opacity:1;animation:fl 1.6s ease-in-out infinite alternate}
+@keyframes fl{from{transform:scale(1,1) rotate(-2deg)}to{transform:scale(.94,1.08) rotate(2deg)}}
+.dots{display:flex;gap:.6rem}
+.dot{width:34px;height:34px;border-radius:50%;border:3px solid transparent;background:var(--c);cursor:pointer;box-shadow:0 0 0 1px var(--line)}
+.dot[aria-pressed="true"]{border-color:var(--bg);box-shadow:0 0 0 3px var(--acc)}
+.hero.lit .dot[aria-pressed="true"]{border-color:var(--night)}
+@media(max-width:720px){.hero .wrap{grid-template-columns:1fr}}
+/* shop */
+.shead{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.shead p{color:var(--mut);max-width:40ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.pic{background:var(--tint,#ece7f5);display:grid;place-items:center;padding:1.5rem 0 .5rem;transition:background .3s}
+.pic svg{width:150px;height:auto}
+.cb{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.9rem;flex:1}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+.top h3{font-size:1.45rem;font-weight:700}
+.price{font:800 1.3rem var(--h)}
+.desc{color:var(--mut);font-size:1.02rem}
+.meta{font-size:.95rem;color:var(--mut);display:flex;gap:1rem;flex-wrap:wrap}
+.lbl{font:700 .95rem var(--h);display:block;margin-bottom:.4rem}
+.lbl em{font:italic 400 .95rem var(--b);color:var(--mut)}
+.sw{display:flex;gap:.5rem;flex-wrap:wrap}
+.sw .dot{width:30px;height:30px}
+.sw .dot[aria-pressed="true"]{border-color:var(--card)}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap}
+.chip{font:500 .9rem var(--h);border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:.35rem .8rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note{font-size:.98rem;font-style:italic;color:var(--mut);min-height:3em}
+.buy{margin-top:auto;display:flex;gap:.6rem;align-items:center}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:999px}
+.qty button{background:none;border:0;color:inherit;font:700 1.1rem var(--h);width:34px;height:38px;cursor:pointer}
+.qty span{min-width:1.5rem;text-align:center;font-family:var(--h)}
+.buy .btn{flex:1}
+/* story & steps */
+.story{background:var(--night);color:#f1edf9}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:2.2rem}
+.cols h3{font-size:1.25rem;margin-bottom:.4rem}
+.cols p{color:#cfc9e6;font-size:1.02rem}
+.steps .cols p{color:var(--mut)}
+.n{font:800 2.4rem var(--h);color:var(--acc)}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem}
+.tip{border-left:4px solid var(--acc);padding:.2rem 0 .2rem 1rem}
+.tip h3{font-size:1.1rem;margin-bottom:.3rem}
+.tip p{color:var(--mut);font-size:1rem}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+blockquote{margin:0;padding:1.3rem;background:var(--card);border:1px solid var(--line);border-radius:18px}
+blockquote footer{margin-top:.8rem;font:700 .95rem var(--h);color:var(--acc)}
+details{border-bottom:1px solid var(--line);padding:1rem 0}
+summary{font:700 1.15rem var(--h);cursor:pointer}
+details p{color:var(--mut);margin-top:.6rem;max-width:60ch}
+.news{background:var(--acc);color:var(--accink);text-align:center}
+.news form{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1.4rem}
+.news input{font:1rem var(--b);padding:.8rem 1.1rem;border-radius:999px;border:0;min-width:min(300px,100%)}
+.news .btn{background:var(--night);color:#fff}
+.news [role=status]{margin-top:1rem;font:700 1rem var(--h);min-height:1.5em}
+footer.site{padding:2.5rem 0;color:var(--mut);font-size:1rem}
+footer.site .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+/* cart */
+.veil{position:fixed;inset:0;background:rgba(10,8,25,.55);z-index:40;display:none}
+.veil.on{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding:calc(1.2rem + env(safe-area-inset-top,0px)) 1.2rem calc(1.2rem + env(safe-area-inset-bottom,0px))}
+.drawer.on{transform:none}
+.drawer header{position:static;border:0;padding:0;display:flex;justify-content:space-between;align-items:center}
+.drawer h2{font-size:1.7rem}
+.x{background:none;border:0;color:inherit;font-size:1.8rem;cursor:pointer}
+.items{flex:1;overflow:auto;margin:1rem 0}
+.it{display:flex;gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--line);align-items:center}
+.it svg{width:44px;flex:none}
+.it div{flex:1;font-size:.98rem;line-height:1.3}
+.it b{font-family:var(--h)}
+.it small{color:var(--mut)}
+.empty{color:var(--mut);padding:1rem 0}
+.tot{display:flex;justify-content:space-between;font:800 1.3rem var(--h);margin-bottom:.8rem}
+.drawer textarea{width:100%;font:1rem var(--b);border:1.5px solid var(--line);border-radius:14px;padding:.7rem;background:var(--card);color:var(--ink);margin-bottom:.8rem;resize:vertical}
+.drawer .btn{width:100%;text-align:center}
+.wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:15;background:#25a244;color:#fff;border-radius:999px;padding:.7rem 1.1rem;font:700 .95rem var(--h);text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#inicio">Llama<span>rte</span></a>
+<nav class="links" aria-label="Principal"><a href="#tienda">Tienda</a><a href="#historia">Nuestra historia</a><a href="#cuidados">Cuidados</a><a href="#faq">Preguntas</a></nav>
+<button class="cartbtn" id="openCart" aria-label="Abrir carrito">Carrito (<span id="cnt">0</span>)</button>
+</div></header>
+
+<main id="inicio">
+<section class="hero" id="hero"><div class="wrap">
+<div>
+<h1>Una maceta que&nbsp;alumbra.</h1>
+<p class="lead">Velas de cera de soya vertidas a mano en macetas de cerámica. Cuando se acaba la vela, la maceta se queda para tu planta.</p>
+<a class="btn" href="#tienda">Armar mi vela</a>
+</div>
+<div class="stage">
+<svg id="heroSvg" viewBox="0 0 200 230" role="img" aria-label="Vela en maceta de cerámica"></svg>
+<button class="btn ghost" id="light" aria-pressed="false">Encender vela</button>
+<div class="dots" id="heroDots" role="group" aria-label="Color de maceta"></div>
+</div>
+</div></section>
+
+<section id="tienda"><div class="wrap">
+<div class="shead"><h2>La tienda</h2><p>Elige tamaño, color de maceta y aroma. Cada pieza se hace por encargo en nuestro taller.</p></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section class="story" id="historia"><div class="wrap">
+<h2>Hechas despacio, en lotes pequeños</h2>
+<div class="cols">
+<div><h3>Cerámica con esmalte propio</h3><p>Cada maceta se modela, se hornea y se esmalta a mano. Por eso no hay dos tonos exactamente iguales.</p></div>
+<div><h3>Cera de soya y mechas de algodón</h3><p>Una combustión limpia, sin parafina. El aroma llena el cuarto sin saturarlo.</p></div>
+<div><h3>Una segunda vida</h3><p>Al terminar la vela, limpia la maceta con agua caliente y siembra una suculenta o una hierba.</p></div>
+</div></div></section>
+
+<section class="steps"><div class="wrap">
+<h2>Así llega a tu casa</h2>
+<div class="cols">
+<div><div class="n">1</div><h3>Eliges y nos escribes</h3><p>Armas tu pedido aquí y lo confirmamos por WhatsApp.</p></div>
+<div><div class="n">2</div><h3>La vertemos para ti</h3><p>Preparamos tu vela fresca y la dejamos curar para que el aroma rinda más.</p></div>
+<div><div class="n">3</div><h3>Te la enviamos empacada</h3><p>Caja protegida, lista para regalar. Puedes agregar una nota a mano.</p></div>
+</div></div></section>
+
+<section id="cuidados" style="padding-top:0"><div class="wrap">
+<h2>Cuida tu vela</h2>
+<div class="tips">
+<div class="tip"><h3>La primera vez, tiempo</h3><p>Déjala encendida 2 a 3 horas para que la cera se derrita pareja hasta los bordes.</p></div>
+<div class="tip"><h3>Mecha corta</h3><p>Recórtala a 5 mm antes de cada uso para una llama tranquila y sin humo.</p></div>
+<div class="tip"><h3>Máximo 4 horas</h3><p>Apágala cuando la cera quede líquida y espera a que se endurezca para volver a encenderla.</p></div>
+<div class="tip"><h3>Lejos de corrientes</h3><p>Colócala sobre una superficie plana y resistente al calor, lejos de niños y mascotas.</p></div>
+</div></div></section>
+
+<section style="background:var(--card);border-block:1px solid var(--line)"><div class="wrap">
+<h2>Lo que dicen de Llamarte</h2>
+<div class="quotes">
+<blockquote><p>“Regalé la de lavanda y mi mamá ya tiene salvia sembrada en la maceta.”</p><footer>Daniela R.</footer></blockquote>
+<blockquote><p>“El aroma a café y piloncillo es justo lo que huele una cocina en diciembre.”</p><footer>Marco A.</footer></blockquote>
+<blockquote><p>“Llegó perfecta y con una nota escrita a mano. Pedí otra para mí.”</p><footer>Fernanda L.</footer></blockquote>
+</div></div></section>
+
+<section id="faq"><div class="wrap">
+<h2 style="margin-bottom:1.5rem">Preguntas frecuentes</h2>
+<details><summary>¿Cuánto dura cada vela?</summary><p>La mini dura unas 20 horas, la clásica 45 y la grande 70, con el cuidado correcto.</p></details>
+<details><summary>¿Puedo personalizar un pedido para evento o boda?</summary><p>Sí. Escríbenos por WhatsApp con la cantidad, colores y aromas, y te cotizamos lotes especiales.</p></details>
+<details><summary>¿Cuánto tarda mi pedido?</summary><p>Entre 3 y 5 días hábiles de elaboración, más el tiempo de envío.</p></details>
+<details><summary>¿Los colores se ven igual que en pantalla?</summary><p>Muy parecido, pero el esmalte artesanal puede variar ligeramente de una pieza a otra.</p></details>
+</div></section>
+
+<section class="news"><div class="wrap">
+<h2>Avisos de nuevos aromas</h2>
+<p style="margin-top:.6rem">Te escribimos solo cuando sale un lote nuevo.</p>
+<form id="nf"><label for="em" style="position:absolute;left:-9999px">Correo electrónico</label><input id="em" type="email" placeholder="tucorreo@ejemplo.com" required><button class="btn" type="submit">Avisarme</button></form>
+<div role="status" id="nmsg"></div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap"><span>© 2026 Llamarte · Hecho a mano en Guanajuato</span><span>Instagram @llamarte.mx</span></div></footer>
+<a class="wa" id="wa" href="https://wa.me/520000000000" target="_blank" rel="noopener">WhatsApp</a>
+
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito" aria-hidden="true">
+<header><h2>Tu pedido</h2><button class="x" id="closeCart" aria-label="Cerrar carrito">×</button></header>
+<div class="items" id="items"></div>
+<div><div class="tot"><span>Total</span><span id="total">$0</span></div>
+<label for="gift" class="lbl">Nota para regalo <em>(opcional)</em></label>
+<textarea id="gift" rows="2" placeholder="Escribe un mensaje corto"></textarea>
+<a class="btn" id="send" href="#">Enviar pedido por WhatsApp</a></div>
+</aside>
+
+<script>
+var WA="520000000000";
+var COL=[["Rosa mexicano","#d9467a"],["Índigo","#3b3f8c"],["Salvia","#8fa58a"],["Mostaza","#e0a526"],["Hueso","#ece4d6"]];
+var SC={lav:["Lavanda de campo","Lavanda, salvia y un fondo de madera suave. Para dormir mejor."],van:["Vainilla tostada","Vainilla cremosa con azúcar caramelizada. Cálida y envolvente."],nar:["Naranja y canela","Cáscara de naranja fresca con canela. Huele a ponche."],ced:["Cedro y ámbar","Madera seca, un toque de ámbar y humo ligero. Sereno."],azh:["Flor de azahar","Azahar, jazmín y un poco de limón. Ligero y floral."],caf:["Café y piloncillo","Café recién molido con piloncillo. Cocina de domingo."]};
+var PR=[
+{id:"mini",n:"Mini",p:180,h:20,w:"120 g",d:"Del tamaño ideal para un escritorio o una mesa de noche. Perfecta para probar un aroma.",s:["lav","van","nar","azh"]},
+{id:"cla",n:"Clásica",p:320,h:45,w:"280 g",d:"Nuestra maceta de siempre. Buen tamaño para la sala, con un aroma que se nota sin cansar.",s:["lav","van","nar","ced","azh","caf"]},
+{id:"gra",n:"Grande",p:520,h:70,w:"500 g",d:"Dos mechas y una maceta ancha que después sirve para una planta grande. Para espacios amplios.",s:["van","ced","caf","nar"]},
+{id:"tri",n:"Trío de minis",p:480,h:60,w:"3 × 120 g",d:"Tres minis en tres colores, con un aroma cada una. Un regalo que llega listo.",s:["lav","van","nar","azh","caf"]}];
+var st={},cart=[];
+function pot(c,lit){return '<svg viewBox="0 0 200 230" aria-hidden="true"><ellipse class="glow" cx="100" cy="110" rx="'+(lit?95:0)+'" ry="95" fill="#ffb02e" opacity=".16"/><path d="M100 18c10 18 16 28 16 40a16 16 0 0 1-32 0c0-12 6-22 16-40z" fill="#ffb02e" class="flame"/><path d="M100 36c5 9 8 14 8 20a8 8 0 0 1-16 0c0-6 3-11 8-20z" fill="#fff3c4" class="flame"/><rect x="98" y="66" width="4" height="18" rx="2" fill="#3a2a22"/><ellipse cx="100" cy="88" rx="60" ry="12" fill="#f3e7d0"/><path d="M36 92h128l-16 108a14 14 0 0 1-14 12H66a14 14 0 0 1-14-12z" fill="'+c+'"/><rect x="28" y="84" width="144" height="20" rx="10" fill="'+c+'"/><path d="M28 94a72 10 0 0 0 144 0" fill="#000" opacity=".12"/><path d="M62 112l8 84" stroke="#fff" stroke-width="5" opacity=".22" stroke-linecap="round"/></svg>'}
+function sh(c){var n=parseInt(c.slice(1),16);return"#"+[16,8,0].map(function(s){return("0"+Math.round(((n>>s)&255)*.35+235*.65).toString(16)).slice(-2)}).join("")}
+var $=function(i){return document.getElementById(i)};
+var mx=function(n){return"$"+n.toLocaleString("es-MX")+" MXN"};
+/* hero */
+var hc=0,lit=false;
+function hero(){$("heroSvg").outerHTML=pot(COL[hc][1]).replace("<svg ",'<svg id="heroSvg" role="img" aria-label="Vela en maceta de cerámica, color '+COL[hc][0]+'" ');
+$("heroDots").innerHTML=COL.map(function(c,i){return'<button class="dot" style="--c:'+c[1]+'" aria-label="'+c[0]+'" aria-pressed="'+(i==hc)+'" data-h="'+i+'"></button>'}).join("")}
+$("light").onclick=function(){lit=!lit;$("hero").classList.toggle("lit",lit);this.textContent=lit?"Apagar vela":"Encender vela";this.setAttribute("aria-pressed",lit)};
+$("heroDots").onclick=function(e){var b=e.target.closest("[data-h]");if(b){hc=+b.dataset.h;hero()}};
+hero();
+/* shop */
+function card(p){var s=st[p.id],c=COL[s.c],sc=SC[p.s[s.s]];
+return'<div class="pic" style="--tint:'+sh(c[1])+'">'+pot(c[1])+'</div><div class="cb"><div class="top"><h3>'+p.n+'</h3><span class="price">'+mx(p.p)+'</span></div><p class="desc">'+p.d+'</p><div class="meta"><span>Cera de soya '+p.w+'</span><span>Hasta '+p.h+' h de luz</span></div>'+
+'<div><span class="lbl">Color de maceta: <em>'+c[0]+'</em></span><div class="sw" role="group" aria-label="Color">'+COL.map(function(k,i){return'<button class="dot" style="--c:'+k[1]+'" aria-label="'+k[0]+'" aria-pressed="'+(i==s.c)+'" data-c="'+i+'"></button>'}).join("")+'</div></div>'+
+'<div><span class="lbl">Aroma</span><div class="chips" role="group" aria-label="Aroma">'+p.s.map(function(k,i){return'<button class="chip" aria-pressed="'+(i==s.s)+'" data-s="'+i+'">'+SC[k][0]+'</button>'}).join("")+'</div></div>'+
+'<p class="note">'+sc[1]+'</p><div class="buy"><div class="qty"><button data-q="-1" aria-label="Menos">−</button><span>'+s.q+'</span><button data-q="1" aria-label="Más">+</button></div><button class="btn" data-add="1">Agregar al carrito</button></div></div>'}
+PR.forEach(function(p){st[p.id]={c:0,s:0,q:1};var d=document.createElement("article");d.className="card";d.id="c-"+p.id;d.innerHTML=card(p);$("grid").appendChild(d)});
+$("grid").onclick=function(e){var b=e.target.closest("button");if(!b)return;var a=b.closest(".card"),p=PR.filter(function(x){return"c-"+x.id==a.id})[0],s=st[p.id],f=b.dataset;
+if(f.c!=null)s.c=+f.c;if(f.s!=null)s.s=+f.s;if(f.q)s.q=Math.max(1,Math.min(9,s.q+ +f.q));
+if(f.add){var k=p.id+s.c+s.s,it=cart.filter(function(x){return x.k==k})[0];if(it)it.q+=s.q;else cart.push({k:k,p:p,c:s.c,s:s.s,q:s.q});s.q=1;draw();open(true)}
+a.innerHTML=card(p);var nb=a.querySelector('[data-c="'+s.c+'"]');if(f.c!=null&&nb)nb.focus();else if(f.s!=null){var z=a.querySelector('[data-s="'+s.s+'"]');z&&z.focus()}else if(f.q){var y=a.querySelector('[data-q="'+f.q+'"]');y&&y.focus()}};
+/* cart */
+function draw(){var n=0,t=0;cart.forEach(function(i){n+=i.q;t+=i.q*i.p.p});$("cnt").textContent=n;$("total").textContent=mx(t);
+$("items").innerHTML=cart.length?cart.map(function(i,x){return'<div class="it">'+pot(COL[i.c][1])+'<div><b>'+i.p.n+'</b><br><small>'+COL[i.c][0]+' · '+SC[i.p.s[i.s]][0]+'</small><br>'+mx(i.p.p*i.q)+'</div><div class="qty" style="flex:none"><button data-m="'+x+'" data-d="-1" aria-label="Quitar uno">−</button><span>'+i.q+'</span><button data-m="'+x+'" data-d="1" aria-label="Agregar uno">+</button></div></div>'}).join(""):'<p class="empty">Tu carrito está vacío. Elige una vela en la tienda.</p>';
+var m="Hola Llamarte, quiero pedir:%0A"+cart.map(function(i){return"• "+i.q+" × "+i.p.n+" ("+COL[i.c][0]+", "+SC[i.p.s[i.s]][0]+")"}).join("%0A")+"%0ATotal: "+mx(t);
+var g=$("gift").value.trim();if(g)m+="%0ANota de regalo: "+encodeURIComponent(g);
+$("send").href=cart.length?"https://wa.me/"+WA+"?text="+m:"#tienda"}
+$("items").onclick=function(e){var b=e.target.closest("[data-m]");if(!b)return;var i=cart[+b.dataset.m];i.q+=+b.dataset.d;if(i.q<1)cart.splice(+b.dataset.m,1);draw()};
+$("gift").oninput=draw;
+function open(o){$("drawer").classList.toggle("on",o);$("veil").classList.toggle("on",o);$("drawer").setAttribute("aria-hidden",!o);if(o)$("closeCart").focus()}
+$("openCart").onclick=function(){open(true)};$("closeCart").onclick=$("veil").onclick=function(){open(false)};
+$("send").onclick=function(e){if(!cart.length){open(false)}};
+document.onkeydown=function(e){if(e.key==="Escape")open(false)};
+$("nf").onsubmit=function(e){e.preventDefault();$("nmsg").textContent="Listo, te avisaremos del próximo lote.";this.reset()};
+draw();
+</script>
+</body>
+</html>
